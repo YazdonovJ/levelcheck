@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Makon - Level Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+    <!-- SF Pro logic usually requires local file or CDN alternative, sticking to Inter as primary sans-serif for web safety -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="screen active">
+        <div class="intro-container">
+
+            <h1>SAT Level Check</h1>
+            <p class="subtitle">Official Placement Assessment</p>
+
+            <div class="exam-info">
+                <div class="info-item">
+                    <span class="icon">⏱️</span>
+                    <span>30 Mins</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📝</span>
+                    <span>15 Questions</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">🎯</span>
+                    <span>Adaptive</span>
+                </div>
+            </div>
+
+            <button id="start-btn" class="primary-btn">Start Assesment</button>
+        </div>
+    </div>
+
+    <!-- EXAM SCREEN -->
+    <div id="exam-screen" class="screen hidden">
+        <header class="exam-header">
+            <div class="header-left">
+                <span>Reading and Writing</span>
+            </div>
+            <div class="header-center">
+                <div class="timer-display" id="timer">30:00</div>
+            </div>
+            <div class="tools-area">
+                <button class="tool-btn" id="zoom-out-btn">A-</button>
+                <button class="tool-btn" id="zoom-in-btn">A+</button>
+                <button class="tool-btn" id="hide-timer-btn">Hide Timer</button>
+            </div>
+        </header>
+
+        <main class="exam-content">
+            <!-- Left Column: Passage / Context -->
+            <div class="split-card left-pane">
+                <div class="question-context" id="question-text">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+
+            <!-- Right Column: Question & Options -->
+            <div class="split-card right-pane">
+                <div class="question-header">
+                    <div class="q-badge">Question <span id="q-number">1</span></div>
+                </div>
+
+                <div class="question-stem" id="question-stem">
+                    <!-- Dynamic Question -->
+                </div>
+
+                <div class="options-container" id="options-container">
+                    <!-- Dynamic Options -->
+                </div>
+
+                <!-- Analysis Box (Dynamic) -->
+                <div id="analysis-container"></div>
+            </div>
+        </main>
+
+        <footer class="exam-footer">
+            <div class="footer-left">
+                <span id="user-name" style="color:var(--text-secondary); font-weight:500;">Student Mode</span>
+            </div>
+            <div class="nav-controls">
+                <button id="prev-btn" class="secondary-btn">Previous</button>
+                <div class="nav-trigger" id="nav-toggle">
+                    Question <span id="current-q-display">1</span> of 15
+                </div>
+                <button id="next-btn" class="nav-btn">Next</button>
+            </div>
+        </footer>
+
+        <!-- Question Navigator Overlay -->
+        <div class="nav-overlay hidden" id="nav-overlay">
+            <div class="nav-grid-container">
+                <div class="nav-grid" id="nav-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULTS SCREEN -->
+    <div id="result-screen" class="screen hidden">
+        <div class="start-screen"
+            style="justify-content:center; align-items:center; display:flex; height:100%; flex-direction: column;">
+            <div class="intro-container">
+                <h2
+                    style="font-family:var(--font-heading); font-size:2.2rem; margin-bottom:30px; color:var(--text-primary);">
+                    Assessment Complete</h2>
+
+                <div class="score-card" style="margin-bottom: 30px;">
+                    <div class="score-circle">
+                        <span id="score-number">--</span>
+                        <span style="font-size:1.5rem; color:var(--text-tertiary);">/ 15</span>
+                    </div>
+                </div>
+
+                <h3 id="level-title" style="font-size:2rem; margin: 10px 0; color:var(--primary-color);">Result</h3>
+                <p id="level-description" style="margin-bottom:40px; font-size:1.15rem; color:var(--text-secondary);">
+                    Brief.</p>
+
+                <div class="action-buttons" style="display:flex; gap:20px; justify-content:center;">
+                    <button id="review-answers-btn" class="primary-btn">Review Analysis</button>
+                    <!-- Take Again button removed as requested -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
